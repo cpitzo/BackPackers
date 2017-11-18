@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('user', function (t) {
         t.increments('id').primary()
-        t.string('username').notNullable()
+        t.schema('user').
         t.string('password').notNullable()
         t.timestamps(false, true)
       })

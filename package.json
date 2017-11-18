@@ -15,6 +15,7 @@
     "sequelize": "^4.15.1"
   },
   "devDependencies": {
+    "@types/node": "^8.0.53",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "nodemon": "^1.12.1",
@@ -22,7 +23,7 @@
   },
   "scripts": {
     "start:dev": "./node_modules/.bin/nodemon ./bin/www",
-    "test": "mocha"
+    "test": "mocha -- src/test/*.js"
   },
   "repository": {
     "type": "git",

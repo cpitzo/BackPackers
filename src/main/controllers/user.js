@@ -1,11 +1,20 @@
 const user = require('../models/user')
+const encrypt = require('../helpers/encrypt')
 
 exports.createUser = function (req, res) {
-    username = req.body.username
-    password = req.body.password
-    console.log(`Add user ${username}`)
-    user.insertUser({
+    username = req.body.username;
+    password = req.body.password;
+    const { salt, hash } = encrypt.saltHashPassword({ password });    
+    console.log(`Add user ${username}`);
+    var createdUser = user.insertUser({
         username: username, 
-        password: password})
-    .then(() => res.sendStatus(200))
+        encrypted_password: hash,
+        salt: salt})
+    .then(function(user){
+        res.json({user});
+    })
+    .catch(function(error) {
+        res.sendStatus(409)
+        console.error(error); });
   };
+
