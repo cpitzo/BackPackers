@@ -15,5 +15,9 @@ var server = app.listen(7555, () => {
   console.log('Server running on http://localhost:7555')
 });
 
-module.exports = server;
+function stop() {
+  server.close();
+}
 
+module.exports.stop = stop;
+module.exports = server;

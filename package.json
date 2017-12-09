@@ -18,12 +18,13 @@
     "@types/node": "^8.0.53",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
+    "mocha-cli": "^1.0.1",
     "nodemon": "^1.12.1",
     "sinon": "^4.1.2"
   },
   "scripts": {
     "start:dev": "./node_modules/.bin/nodemon ./bin/www",
-    "test": "mocha -- src/test/*.js"
+    "test": "mocha -- src/test/*.js --exit"
   },
   "repository": {
     "type": "git",

@@ -18,3 +18,17 @@ exports.createUser = function (req, res) {
         console.error(error); });
   };
 
+  exports.getUser = function (req, res) {
+    username = req.body.username;
+    console.log(`get user ${username}`);
+    var getUser = user.getUser({
+        username: username
+    })
+    .then(function(user){
+        res.json({user});
+    })
+    .catch(function(error) {
+        res.sendStatus(409)
+        console.error(error); });
+  };
+
